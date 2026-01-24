@@ -59,6 +59,11 @@ body {
     color: var(--primary-color);
 }
 
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .logo-icon {
     width: 45px;
     height: 45px;
@@ -607,6 +612,16 @@ section {
 }
 
 .services-footer .btn-primary {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+}
+
+.about-footer {
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.about-footer .btn-primary {
     padding: 1rem 2.5rem;
     font-size: 1rem;
 }
