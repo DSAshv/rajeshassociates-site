@@ -91,3 +91,27 @@ animateElements.forEach(el => {
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
+
+// WhatsApp Float Icon Visibility
+window.addEventListener('scroll', function() {
+    const hero = document.getElementById('home');
+    const whatsapp = document.getElementById('whatsappFloat');
+    if (window.innerWidth <= 768) {
+        const heroRect = hero.getBoundingClientRect();
+        if (heroRect.bottom < 0) {
+            whatsapp.style.display = 'block';
+        } else {
+            whatsapp.style.display = 'none';
+        }
+    } else {
+        whatsapp.style.display = 'none';
+    }
+});
+
+// Also check on resize
+window.addEventListener('resize', function() {
+    const whatsapp = document.getElementById('whatsappFloat');
+    if (window.innerWidth > 768) {
+        whatsapp.style.display = 'none';
+    }
+});
