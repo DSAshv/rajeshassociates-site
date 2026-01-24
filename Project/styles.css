@@ -1024,7 +1024,7 @@ section {
 
 /* Disclaimer Modal */
 .disclaimer-modal-overlay {
-    display: flex;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -1038,6 +1038,7 @@ section {
 }
 
 .disclaimer-modal {
+    display: none;
     background: var(--white);
     border-radius: 10px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -1093,6 +1094,41 @@ section {
 
     .disclaimer-actions {
         padding: 1.25rem 1.5rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .disclaimer-modal-overlay {
+        padding: 8px;
+    }
+
+    .disclaimer-modal {
+        max-height: 90vh;
+    }
+
+    .disclaimer-content {
+        padding: 1rem 1.25rem;
+        padding-bottom: 4.5rem;
+    }
+
+    .disclaimer-content h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .disclaimer-content p,
+    .disclaimer-content li {
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .disclaimer-actions {
+        padding: 1rem 1.25rem;
+    }
+
+    .disclaimer-actions .btn-primary {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
     }
 }
 

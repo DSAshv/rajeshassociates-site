@@ -30,15 +30,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission handler
-const contactForm = document.querySelector('.contact-form form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Thank you for your message! We will get back to you soon.');
-        contactForm.reset();
-    });
-}
 
 // Navbar background on scroll
 window.addEventListener('scroll', () => {
@@ -75,7 +66,7 @@ function initDisclaimerModal() {
 }
 
 // Initialize disclaimer modal on page load
-document.addEventListener('DOMContentLoaded', initDisclaimerModal);
+//document.addEventListener('DOMContentLoaded', initDisclaimerModal);
 
 // Intersection Observer for scroll animations
 const observerOptions = {
