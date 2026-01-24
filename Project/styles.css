@@ -1061,6 +1061,39 @@ section {
 
 .disclaimer-content {
     padding: 2rem;
+    padding-bottom: 5rem; /* space for sticky actions */
+}
+
+@media (max-width: 640px) {
+    .disclaimer-modal-overlay {
+        padding: 12px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .disclaimer-modal {
+        max-width: 100%;
+        border-radius: 12px;
+        max-height: 85vh;
+    }
+
+    .disclaimer-content {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .disclaimer-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .disclaimer-content p,
+    .disclaimer-content li {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .disclaimer-actions {
+        padding: 1.25rem 1.5rem;
+    }
 }
 
 .disclaimer-content h2 {
@@ -1089,10 +1122,14 @@ section {
 }
 
 .disclaimer-actions {
+    position: sticky;
+    bottom: 0;
     padding: 1.5rem 2rem;
     border-top: 1px solid var(--border-color);
+    background: var(--white);
     display: flex;
     justify-content: center;
+    z-index: 1;
 }
 
 .disclaimer-actions .btn-primary {
