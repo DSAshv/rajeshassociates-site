@@ -1225,3 +1225,10 @@ section {
 .whatsapp-float img:hover {
     transform: scale(1.1);
 }
+
+/* Hide WhatsApp icon on desktop */
+@media (min-width: 769px) {
+    .whatsapp-float {
+        display: none !important;
+    }
+}
