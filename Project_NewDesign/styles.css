@@ -1116,6 +1116,7 @@ h3 {
     gap: 3rem;
     max-width: 1400px;
     margin: 0 auto;
+    justify-items: center;
 }
 
 .stat-showcase-card {
@@ -1903,7 +1904,7 @@ h3 {
     .hero-text h1,
     .animated-title {
         font-size: 4.1rem;
-        min-height: 7.2rem;
+        min-height: 10rem;
         margin-bottom: 1.5rem;
     }
 
