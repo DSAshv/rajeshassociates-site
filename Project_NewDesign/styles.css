@@ -2084,22 +2084,22 @@ h3 {
 
     .hero-content-wrapper {
         min-height: 100vh;
-        padding-top: 24px;
+        padding-top: 40px;
     }
 
     .hero-text h1,
     .animated-title {
-        font-size: 2.6rem;
-        min-height: 7.4rem;
+        font-size: 2.2rem;
+        min-height: 5.5rem;
         margin-bottom: 1rem;
     }
 
     .animated-title {
-        line-height: 1.2;
+        line-height: 1.3;
     }
 
     .title-word {
-        min-height: 7.4rem;
+        min-height: 5.5rem;
     }
 
     .title-suffix {
@@ -2178,5 +2178,52 @@ h3 {
 
     .footer-col h4 {
         font-size: 1rem;
+    }
+
+    .disclaimer-modal {
+        max-width: calc(100% - 2rem);
+        max-height: 90vh;
+        margin: 0 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .disclaimer-content {
+        padding: 1.5rem;
+        overflow-y: auto;
+        flex: 1;
+    }
+
+    .disclaimer-content h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .disclaimer-content p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .disclaimer-content ul {
+        margin: 1rem 0 1rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .disclaimer-content li {
+        margin-bottom: 0.6rem;
+    }
+
+    .disclaimer-actions {
+        padding: 1rem 1.5rem;
+        position: sticky;
+        bottom: 0;
+        background: var(--white);
+        border-top: 1px solid var(--border-color);
+        justify-content: center;
+    }
+
+    .disclaimer-actions .btn-primary {
+        width: 100%;
+        max-width: 200px;
     }
 }
