@@ -211,8 +211,9 @@ if (statsShowcaseSection) {
 
 // Scroll to top functionality
 const scrollToTopBtn = document.createElement('button');
-scrollToTopBtn.innerHTML = '↑';
+scrollToTopBtn.innerHTML = '<i class="bi bi-arrow-up-short"></i>';
 scrollToTopBtn.className = 'scroll-to-top';
+scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
 scrollToTopBtn.style.cssText = `
     position: fixed;
     bottom: 30px;
@@ -224,7 +225,7 @@ scrollToTopBtn.style.cssText = `
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 26px;
     display: none;
     align-items: center;
     justify-content: center;

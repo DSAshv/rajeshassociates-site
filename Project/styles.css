@@ -104,8 +104,8 @@ body {
 }
 
 .btn-primary {
-    background: var(--primary-color);
-    color: var(--white);
+    background: linear-gradient(135deg, #f0c556 0%, #d4a03a 100%);
+    color: var(--primary-color);
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     text-decoration: none;
@@ -114,11 +114,24 @@ body {
     display: inline-block;
     border: none;
     cursor: pointer;
+    box-shadow: 0 4px 16px rgba(212, 160, 58, 0.35);
+    letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+    pointer-events: none;
 }
 
 .btn-primary:hover {
-    background: var(--secondary-color);
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, #f7d06a 0%, #c49530 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(212, 160, 58, 0.5);
 }
 
 .btn-secondary {
@@ -783,6 +796,18 @@ section {
 .testimonial-author span {
     color: var(--text-light);
     font-size: 0.875rem;
+}
+
+.google-top-rated-wrapper {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.google-top-rated-badge {
+    max-width: 280px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Contact Section */
