@@ -1445,6 +1445,7 @@ h3 {
 
 .google-top-rated-badge {
     max-width: 380px;
+    width: 100%;
     height: auto;
     border-radius: 12px;
 }
