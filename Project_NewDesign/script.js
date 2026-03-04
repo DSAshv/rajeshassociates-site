@@ -359,21 +359,7 @@ if ('IntersectionObserver' in window) {
         grid.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
     });
 
-    // Touch swipe — only nudge, let CSS snap do the rest
-    let touchStartX = 0;
-
-    grid.addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    grid.addEventListener('touchend', function(e) {
-        const touchEndX = e.changedTouches[0].screenX;
-        const diff = touchStartX - touchEndX;
-        // Only nudge by a small amount; CSS scroll-snap will handle snapping to the correct card
-        if (Math.abs(diff) > 40) {
-            grid.scrollBy({ left: diff > 0 ? 60 : -60, behavior: 'smooth' });
-        }
-    }, { passive: true });
+    // Native touch scroll + CSS scroll-snap handles swiping automatically
 })();
 
 // Add smooth page transitions
