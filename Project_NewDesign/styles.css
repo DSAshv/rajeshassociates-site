@@ -634,7 +634,7 @@ h3 {
     position: relative;
 }
 
-.carousel-arrow {
+.carousel-dots {
     display: none;
 }
 
@@ -2364,42 +2364,26 @@ h3 {
         box-shadow: none;
     }
 
-    .carousel-arrow {
+    .carousel-dots {
         display: flex;
-        align-items: center;
         justify-content: center;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-        width: 44px;
-        height: 44px;
+        gap: 8px;
+        padding: 16px 0 4px;
+    }
+
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.35);
-        color: rgba(0, 0, 0, 0.5);
-        border: none;
-        font-size: 1.4rem;
+        background: rgba(0, 0, 0, 0.2);
         cursor: pointer;
-        box-shadow: none;
-        transition: var(--transition);
-        backdrop-filter: blur(6px);
+        transition: all 0.3s ease;
     }
 
-    .carousel-arrow:hover {
-        background: rgba(200, 200, 200, 0.5);
-        color: rgba(0, 0, 0, 0.7);
-    }
-
-    .carousel-arrow-left {
-        left: 6px;
+    .carousel-dot.active {
+        width: 24px;
+        border-radius: 4px;
         background: var(--accent-color);
-        color: var(--primary-color);
-    }
-
-    .carousel-arrow-right {
-        right: 6px;
-        background: var(--accent-color);
-        color: var(--primary-color);
     }
 
     .team-card img {

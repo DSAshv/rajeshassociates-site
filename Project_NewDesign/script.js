@@ -338,25 +338,52 @@ if ('IntersectionObserver' in window) {
     });
 }
 
-// Services Mobile Carousel
+// Services Mobile Carousel Dots
 (function() {
     const grid = document.querySelector('.services-grid');
-    const leftArrow = document.querySelector('.carousel-arrow-left');
-    const rightArrow = document.querySelector('.carousel-arrow-right');
-    if (!grid || !leftArrow || !rightArrow) return;
+    const dotsContainer = document.querySelector('.carousel-dots');
+    if (!grid || !dotsContainer) return;
 
-    function getCardWidth() {
-        const card = grid.querySelector('.service-card');
-        if (!card) return 300;
-        return card.offsetWidth + (parseInt(getComputedStyle(grid).gap) || 16);
-    }
+    const cards = grid.querySelectorAll('.service-card');
+    if (!cards.length) return;
 
-    leftArrow.addEventListener('click', function() {
-        grid.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+    // Create dots
+    cards.forEach(function(_, i) {
+        const dot = document.createElement('span');
+        dot.classList.add('carousel-dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', function() {
+            cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        });
+        dotsContainer.appendChild(dot);
     });
 
-    rightArrow.addEventListener('click', function() {
-        grid.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+    const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+    // Update active dot on scroll
+    function updateDots() {
+        const gridRect = grid.getBoundingClientRect();
+        const center = gridRect.left + gridRect.width / 2;
+        let closestIdx = 0;
+        let closestDist = Infinity;
+        cards.forEach(function(card, i) {
+            const cardRect = card.getBoundingClientRect();
+            const cardCenter = cardRect.left + cardRect.width / 2;
+            const dist = Math.abs(cardCenter - center);
+            if (dist < closestDist) {
+                closestDist = dist;
+                closestIdx = i;
+            }
+        });
+        dots.forEach(function(dot, i) {
+            dot.classList.toggle('active', i === closestIdx);
+        });
+    }
+
+    let scrollTimer;
+    grid.addEventListener('scroll', function() {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(updateDots, 50);
     });
 
     // Native touch scroll + CSS scroll-snap handles swiping automatically
