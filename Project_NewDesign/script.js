@@ -110,13 +110,14 @@ document.querySelectorAll('.service-card, .testimonial-card, .feature-card, .tea
 function animateCounter(element, target, duration = 2000) {
     let current = 0;
     const increment = target / (duration / 16);
+    const suffix = element.getAttribute('data-suffix') || '';
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
-            element.textContent = target;
+            element.textContent = target + suffix;
             clearInterval(timer);
         } else {
-            element.textContent = Math.floor(current);
+            element.textContent = Math.floor(current) + suffix;
         }
     }, 16);
 }
