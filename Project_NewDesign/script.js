@@ -338,6 +338,44 @@ if ('IntersectionObserver' in window) {
     });
 }
 
+// Services Mobile Carousel
+(function() {
+    const grid = document.querySelector('.services-grid');
+    const leftArrow = document.querySelector('.carousel-arrow-left');
+    const rightArrow = document.querySelector('.carousel-arrow-right');
+    if (!grid || !leftArrow || !rightArrow) return;
+
+    function getCardWidth() {
+        const card = grid.querySelector('.service-card');
+        if (!card) return 300;
+        return card.offsetWidth + parseInt(getComputedStyle(grid).gap) || 16;
+    }
+
+    leftArrow.addEventListener('click', function() {
+        grid.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+    });
+
+    rightArrow.addEventListener('click', function() {
+        grid.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+    });
+
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    grid.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    grid.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            grid.scrollBy({ left: diff > 0 ? getCardWidth() : -getCardWidth(), behavior: 'smooth' });
+        }
+    }, { passive: true });
+})();
+
 // Add smooth page transitions
 window.addEventListener('beforeunload', function() {
     document.documentElement.style.opacity = '0';

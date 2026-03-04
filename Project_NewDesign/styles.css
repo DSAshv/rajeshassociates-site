@@ -629,6 +629,15 @@ h3 {
     margin-top: 3rem;
 }
 
+/* Services Carousel Wrapper */
+.services-carousel-wrapper {
+    position: relative;
+}
+
+.carousel-arrow {
+    display: none;
+}
+
 /* Services Detailed Grid */
 .services-detailed-grid {
     display: grid;
@@ -2293,6 +2302,66 @@ h3 {
     .team-grid,
     .testimonials-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Services Mobile Carousel */
+    .services-carousel-wrapper {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .services-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 1rem;
+        padding: 0 calc(50% - 140px);
+    }
+
+    .services-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .services-grid .service-card {
+        flex: 0 0 280px;
+        scroll-snap-align: center;
+        opacity: 1;
+        animation: none;
+    }
+
+    .carousel-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        color: var(--white);
+        border: 2px solid var(--accent-color);
+        font-size: 1.1rem;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: var(--transition);
+    }
+
+    .carousel-arrow:hover {
+        background: var(--accent-color);
+        color: var(--primary-color);
+    }
+
+    .carousel-arrow-left {
+        left: 4px;
+    }
+
+    .carousel-arrow-right {
+        right: 4px;
     }
 
     .team-card img {
