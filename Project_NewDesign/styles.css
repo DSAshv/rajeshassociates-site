@@ -2352,16 +2352,29 @@ h3 {
         scroll-snap-align: center;
         opacity: 1;
         animation: none;
+        box-shadow: none;
+        overflow: hidden;
+        height: auto;
+        min-height: 0;
     }
 
     .services-grid .service-card:hover {
         transform: none;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        box-shadow: none;
     }
 
     .services-grid .service-card:hover .service-image img {
         transform: none;
         box-shadow: none;
+    }
+
+    .services-grid .service-image {
+        height: 180px;
+        margin-bottom: 0;
+    }
+
+    .services-grid .service-image img {
+        height: 180px;
     }
 
     .carousel-dots {
