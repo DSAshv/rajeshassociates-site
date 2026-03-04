@@ -2354,6 +2354,16 @@ h3 {
         animation: none;
     }
 
+    .services-grid .service-card:hover {
+        transform: none;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .services-grid .service-card:hover .service-image img {
+        transform: none;
+        box-shadow: none;
+    }
+
     .carousel-arrow {
         display: flex;
         align-items: center;
@@ -2382,10 +2392,14 @@ h3 {
 
     .carousel-arrow-left {
         left: 6px;
+        background: var(--accent-color);
+        color: var(--primary-color);
     }
 
     .carousel-arrow-right {
         right: 6px;
+        background: var(--accent-color);
+        color: var(--primary-color);
     }
 
     .team-card img {
