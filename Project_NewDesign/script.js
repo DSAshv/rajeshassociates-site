@@ -348,7 +348,7 @@ if ('IntersectionObserver' in window) {
     function getCardWidth() {
         const card = grid.querySelector('.service-card');
         if (!card) return 300;
-        return card.offsetWidth + parseInt(getComputedStyle(grid).gap) || 16;
+        return card.offsetWidth + (parseInt(getComputedStyle(grid).gap) || 16);
     }
 
     leftArrow.addEventListener('click', function() {
@@ -359,19 +359,19 @@ if ('IntersectionObserver' in window) {
         grid.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
     });
 
-    // Touch swipe support
+    // Touch swipe — only nudge, let CSS snap do the rest
     let touchStartX = 0;
-    let touchEndX = 0;
 
     grid.addEventListener('touchstart', function(e) {
         touchStartX = e.changedTouches[0].screenX;
     }, { passive: true });
 
     grid.addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].screenX;
+        const touchEndX = e.changedTouches[0].screenX;
         const diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > 50) {
-            grid.scrollBy({ left: diff > 0 ? getCardWidth() : -getCardWidth(), behavior: 'smooth' });
+        // Only nudge by a small amount; CSS scroll-snap will handle snapping to the correct card
+        if (Math.abs(diff) > 40) {
+            grid.scrollBy({ left: diff > 0 ? 60 : -60, behavior: 'smooth' });
         }
     }, { passive: true });
 })();
